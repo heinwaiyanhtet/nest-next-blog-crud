@@ -1,1 +1,6 @@
-export class Blog {}
+import { Entity } from "typeorm";
+
+@Entity()
+export class Blog {
+    
+}
