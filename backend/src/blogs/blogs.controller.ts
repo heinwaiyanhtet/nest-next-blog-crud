@@ -9,26 +9,60 @@ export class BlogsController {
 
   @Post()
   create(@Body() createBlogDto: CreateBlogDto) {
-    return this.blogsService.create(createBlogDto);
+    try
+    {
+        return this.blogsService.create(createBlogDto);
+    } 
+    catch (ex) {
+        throw new Error(`Catch error : ${ex.message}`);
+    }
   }
+
 
   @Get()
   findAll() {
-    return this.blogsService.findAll();
+    try 
+    {
+        return this.blogsService.findAll();
+    } catch (ex) {
+        throw new Error(`create error: ${ex.message}.`);
+    }
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.blogsService.findOne(+id);
+
+    try {
+        return this.blogsService.findOne(+id);
+    } catch (ex) {
+        throw new Error(`create error: ${ex.message}.`);
+    }
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
-    return this.blogsService.update(+id, updateBlogDto);
+    if (!id)
+          throw new Error(`update error: id is empty.`);
+      try {
+        return this.blogsService.update(+id, updateBlogDto);
+      
+      } catch (ex) {
+          throw new Error(`create error: ${ex.message}.`);
+      }
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.blogsService.remove(+id);
+
+    try {
+          if (!id)
+            throw new Error(`update error: id is empty.`);
+
+          return this.blogsService.remove(+id);
+
+    }
+     catch (ex) {
+         throw new Error(`create error: ${ex.message}.`);
+    }
   }
 }
