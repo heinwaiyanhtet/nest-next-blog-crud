@@ -10,7 +10,7 @@ type BlogItem = {
    id : number,
    title : string,
    description : string,
-   createdBy : SVGStringList
+   createdBy : string
 }
 
 export default async function Home() {
@@ -20,21 +20,25 @@ export default async function Home() {
   return (
 
     <div className="container mx-auto">
-
       <h1 className="text-center mt-5 mb-5 font-bold underline underline-offset-4">Blog List</h1>
 
       <div className='flex mt-5'>
-
-          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                  <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Need a help in Claim?</h5>
-              </a>
-              <p className="mb-1 font-normal text-gray-500 dark:text-gray-400">Go to this step by step guideline process on how to certify for your weekly benefits:</p>
-              <div className="flex">
-                  <p className="font-normal text-gray-500 dark:text-gray-400 mr-1">Created By -  </p>
-                  <span className="font-medium"> Hein Wai Yan Htet</span>
-              </div>
-          </div>
+          {
+            data.map((d : BlogItem,index:number) : React.ReactNode => {
+                return <div key={index} className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <a href="#">
+                                <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{d.title}</h5>
+                            </a>
+                            <p className="mb-1 font-normal text-gray-500 dark:text-gray-400">{d.description}</p>
+                            <div className="flex">
+                                <p className="font-normal text-gray-500 dark:text-gray-400 mr-1">Created By -  </p>
+                                <span className="font-medium"> {d.createdBy} </span>
+                            </div>
+                       </div>
+               
+              })
+          }
+          
         
       </div>
     </div>
