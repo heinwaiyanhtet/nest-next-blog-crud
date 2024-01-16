@@ -9,7 +9,7 @@ export class Blog {
     @Column()
     title : string
 
-    @Column()
+    @Column({ type: 'text' })
     description : string
 
     @Column()

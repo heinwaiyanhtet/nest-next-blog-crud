@@ -8,7 +8,7 @@ export class BlogsController {
   constructor(private readonly blogsService: BlogsService) {}
 
   @Post()
-  create(@Body() createBlogDto: CreateBlogDto) {
+  create(@Body() createBlogDto: CreateBlogDto) {    
     try
     {
         return this.blogsService.create(createBlogDto);
