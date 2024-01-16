@@ -1,14 +1,15 @@
 
-export default function Blog() {
-  
+export default function Blogs() {
+
+      
   return (
 
     <div className='flex justify-center mt-5'>
 
         <div className="w-11/12	 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-
+            
             <form className="space-y-6" action="#">
-              
+                
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">Create Blog</h5>
 
                 <div>
@@ -32,8 +33,8 @@ export default function Blog() {
 
         </div>
 
-
      </div>
 
   )
 }
+
