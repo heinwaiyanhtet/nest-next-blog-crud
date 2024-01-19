@@ -1,3 +1,5 @@
+import { DeleteForm } from "../delete-form";
+
 async function getData() {
     const res = await fetch('http://localhost:3001/blogs',{ next: { revalidate: 1 }})
     if (!res.ok) {
@@ -56,16 +58,13 @@ export default async function Home() {
                               <span className="font-medium"> {d.createdBy} </span>
                           </div>
 
-                          <button className="bg-transparent mr-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-                              Edit
-                          </button>
+                         <div className="flex justify-between mt-2">
+                            <button className="bg-transparent mr-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                  Edit
+                              </button>
 
-                          <button 
-                                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                                // onClick={() => hanldeDelete(d.id)}
-                          >
-                              Delete
-                          </button>
+                            <DeleteForm Blog={d} />
+                         </div>
                        </div>
                     )
                

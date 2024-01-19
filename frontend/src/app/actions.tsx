@@ -9,7 +9,6 @@ export async function createBlog(
     formData: FormData,
   ) {
     
-  
    try {
 
     const title = formData.get("title");
@@ -44,5 +43,42 @@ export async function createBlog(
     {
       return { message: "Failed to create todo" };
     }
+    
 }
+
+export async function deleteBlog(
+  prevState: {
+    message: string | undefined | null
+  },
+  formData : FormData
+)
+{
+  try {
+
+      const id = formData.get("id");
+      
+      const response = await fetch(`http://localhost:3001/blogs/${id}`,
+      {
+          method:"DELETE",
+          headers: {
+              'Content-Type' : 'application/json',
+          }
+      })
   
+      if(response.ok)
+      {
+          revalidatePath("/blogs");
+          return { message: `Blog deleted successfully` };
+      }
+      else
+      {
+          return { message: `failed to delete blog` };
+      }
+
+
+    revalidatePath("/blogs");
+
+  } catch (error) {
+      return {message : "Failed to delete blog"};
+  }
+}
