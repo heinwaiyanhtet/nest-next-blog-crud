@@ -11,7 +11,6 @@ export async function createBlog(
     
   
    try {
-       
 
     const title = formData.get("title");
     const createdBy = formData.get("createdBy");
