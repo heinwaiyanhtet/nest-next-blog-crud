@@ -21,6 +21,7 @@ type BlogItem = {
 export default async function Home() {
   
   const data : BlogItem[] = await getData();
+  
 
   return (
 
@@ -52,14 +53,14 @@ export default async function Home() {
                             >
                                 Edit
                             </button>
-                            
+
                         </Link>
                        
 
-                          <DeleteForm id={d.id} title={d.title}/>
+                        <DeleteForm id={d.id} title={d.title}/>
 
                         </div>
-                      </div>
+                  </div>
                   )
                
               })

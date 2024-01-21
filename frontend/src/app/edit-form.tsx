@@ -31,10 +31,11 @@ export function EditForm
 ){
 
     const [state,formAction] = useFormState(deleteBlog,initialState);
-
+    
     const {id,title,description,createdBy} = Blog;
 
     return(
+
         <form action={formAction}>
             
             <input 
