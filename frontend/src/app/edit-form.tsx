@@ -23,7 +23,7 @@ function SubmitButton()
 
 
 
-export function CreateForm(){
+export function EditForm(){
 
     const [state, formAction] = useFormState(createBlog, initialState);
 

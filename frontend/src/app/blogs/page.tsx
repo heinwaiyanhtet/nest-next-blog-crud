@@ -42,6 +42,7 @@ export default async function Home() {
                         </div>
 
                         <div className="flex justify-between mt-2">
+                          
                           <button 
                                 className="bg-transparent mr-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
                           >

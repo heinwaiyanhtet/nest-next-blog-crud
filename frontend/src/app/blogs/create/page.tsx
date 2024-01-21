@@ -1,6 +1,6 @@
 import { CreateForm } from "@/app/create-form";
 
-export default function Blogs() {
+export default function Create() {
 
     return (
 

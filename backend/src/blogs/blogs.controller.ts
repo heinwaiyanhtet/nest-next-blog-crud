@@ -21,12 +21,12 @@ export class BlogsController {
 
   @Get()
   findAll() {
-    try 
-    {
-        return this.blogsService.findAll();
-    } catch (ex) {
-        throw new Error(`create error: ${ex.message}.`);
-    }
+      try 
+      {
+          return this.blogsService.findAll();
+      } catch (ex) {
+          throw new Error(`create error: ${ex.message}.`);
+      }
   }
 
   @Get(':id')

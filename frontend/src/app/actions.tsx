@@ -56,7 +56,6 @@ export async function deleteBlog(
 {
   try {
 
-
       const id = formData.get("id");
 
       const response = await fetch(`http://localhost:3001/blogs/${id}`,
