@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DeleteForm } from "../delete-form";
 import { EditForm } from "../edit-form";
 
@@ -8,7 +9,6 @@ async function getData() {
     }
     return res.json()
 }
-
 
 
 type BlogItem = {
@@ -44,7 +44,17 @@ export default async function Home() {
 
                         <div className="flex justify-between mt-2">
                           
-                          <EditForm Blog={d} />
+                        <Link 
+                              href={`/blogs/edit/${d.id}`}
+                        >
+                            <button 
+                                className="bg-transparent mr-2 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                            >
+                                Edit
+                            </button>
+                            
+                        </Link>
+                       
 
                           <DeleteForm id={d.id} title={d.title}/>
 
