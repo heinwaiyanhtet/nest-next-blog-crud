@@ -78,3 +78,4 @@ export async function deleteBlog(
       return {message : "Failed to delete blog"};
   }
 }
+
