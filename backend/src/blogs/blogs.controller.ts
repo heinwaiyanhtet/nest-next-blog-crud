@@ -53,13 +53,11 @@ export class BlogsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-
     try {
-          if (!id)
-            throw new Error(`update error: id is empty.`);
+        if (!id)
+          throw new Error(`delete error: id is empty.`);
 
-          return this.blogsService.remove(+id);
-
+        return this.blogsService.remove(+id);
     }
      catch (ex) {
          throw new Error(`create error: ${ex.message}.`);

@@ -46,6 +46,7 @@ export async function createBlog(
     
 }
 
+
 export async function deleteBlog(
   prevState: {
     message: string | undefined | null
@@ -55,16 +56,16 @@ export async function deleteBlog(
 {
   try {
 
+
       const id = formData.get("id");
-      
+
       const response = await fetch(`http://localhost:3001/blogs/${id}`,
       {
           method:"DELETE",
-          headers: {
-              'Content-Type' : 'application/json',
-          }
       })
-  
+
+      console.log(response);
+      
       if(response.ok)
       {
           revalidatePath("/blogs");
@@ -74,10 +75,6 @@ export async function deleteBlog(
       {
           return { message: `failed to delete blog` };
       }
-
-
-    revalidatePath("/blogs");
-
   } catch (error) {
       return {message : "Failed to delete blog"};
   }
