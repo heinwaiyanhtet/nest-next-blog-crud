@@ -1,7 +1,7 @@
 "use client"
 
 import { useFormState, useFormStatus } from "react-dom";
-import { deleteBlog } from "./actions";
+import { deleteBlog } from "../actions";
 
 
 const initialState = {

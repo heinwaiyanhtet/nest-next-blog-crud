@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { DeleteForm } from "../delete-form";
-import { EditForm } from "../edit-form";
+import { DeleteForm } from "./delete/delete-form";
+import { EditForm } from "./edit/edit-form";
 
 async function getData() {
     const res = await fetch('http://localhost:3001/blogs',{ next: { revalidate: 1 }})
@@ -55,7 +55,6 @@ export default async function Home() {
                             </button>
 
                         </Link>
-                       
 
                         <DeleteForm id={d.id} title={d.title}/>
 

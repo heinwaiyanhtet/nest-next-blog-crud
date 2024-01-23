@@ -7,7 +7,7 @@ export default function Home() {
     <h1 className='text-center flex justify-center mt-5'>
 
         Hello Nest.js + Next.js CRUD
-
+        
     </h1>
 
   )

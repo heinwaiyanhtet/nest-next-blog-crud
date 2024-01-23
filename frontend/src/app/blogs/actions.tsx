@@ -79,7 +79,6 @@ export async function deleteBlog(
   }
 }
 
-
 export async function EditBlog(
   prevState: {
     message: string | undefined | null

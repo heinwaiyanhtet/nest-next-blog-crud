@@ -1,4 +1,4 @@
-import { CreateForm } from "@/app/create-form";
+import { CreateForm } from "./create-form";
 
 export default function Create() {
 

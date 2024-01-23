@@ -1,7 +1,6 @@
 "use server";
 
-import { EditPage } from "@/app/edit-page";
-
+import { EditPage } from "../edit-page";
 
 
 // get parmas in server side and fetch from server
