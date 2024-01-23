@@ -18,7 +18,6 @@ export class BlogsController {
     }
   }
 
-
   @Get()
   findAll() {
       try 
@@ -38,7 +37,7 @@ export class BlogsController {
         throw new Error(`create error: ${ex.message}.`);
     }
   }
-
+  
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
     if (!id)
@@ -63,4 +62,5 @@ export class BlogsController {
          throw new Error(`create error: ${ex.message}.`);
     }
   }
+
 }
