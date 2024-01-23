@@ -1,12 +1,21 @@
 import Link from "next/link";
 import { DeleteForm } from "./delete/delete-form";
-import { EditForm } from "./edit/edit-form";
+import { useAppDispatch } from "@/lib/hooks";
+import { setBlogs } from "@/lib/features/blogs/blogsSlice";
+import { ShareData } from "./share-data";
+
 
 async function getData() {
+
     const res = await fetch('http://localhost:3001/blogs',{ next: { revalidate: 1 }})
+
     if (!res.ok) {
       throw new Error('Failed to fetch data')
     }
+
+    // const dispatch = useAppDispatch()
+    // dispatch(setBlogs(res))
+
     return res.json()
 }
 
@@ -22,11 +31,14 @@ export default async function Home() {
   
   const data : BlogItem[] = await getData();
   
-
   return (
 
   <div className="container mx-auto">
     <h1 className="text-center mt-5 mb-2 font-bold underline underline-offset-4">Blog List</h1>
+     {
+
+          <ShareData blogs={data}/>
+     }
 
       <div className='flex mt-5 flex-wrap'>
         {
