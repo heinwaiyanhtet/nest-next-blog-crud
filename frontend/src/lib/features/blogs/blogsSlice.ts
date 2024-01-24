@@ -7,7 +7,7 @@ interface Blog{
     description : string,
 }
 
-const blogsSlice = createSlice({
+export const blogsSlice = createSlice({
   name: 'blogs',
   initialState: [] as Blog[],
   reducers: {
@@ -21,7 +21,6 @@ const blogsSlice = createSlice({
             description : action.payload.description,
         })
     }
-
   }
 })
 

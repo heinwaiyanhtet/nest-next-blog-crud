@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import { Provider } from 'react-redux'
+// import { makeStore, AppStore } from '../lib/store'
 
 const inter = Inter({ subsets: ['latin'] })
+
+// const store: AppStore = makeStore();
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,8 +26,11 @@ export default function RootLayout({
 
       <html lang="en">
         <body className={inter.className}>
-          
-          {children}
+          {/* <Provider store={store} > */}
+
+            {children}
+
+          {/* </Provider> */}
           
           </body>
       </html>

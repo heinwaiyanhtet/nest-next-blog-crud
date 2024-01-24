@@ -26,6 +26,8 @@ export function ShareData({ blogs } :ShareDataProps ){
 
         // dispatch(setBlogs(blogs))
 
+        console.log(blogs);
+        
     },[])
 
     return (

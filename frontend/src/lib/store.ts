@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import blogsReducer from './features/blogs/blogsSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-        
+        blogs : blogsReducer
     }
   })
 }
