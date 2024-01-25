@@ -92,6 +92,12 @@ export async function EditBlog(
       const description = formData.get("description");
       const createdBy = formData.get("createdBy");
 
+      console.log("id is ",id);
+      console.log("title is ",title);
+      console.log("description is ",description);
+      console.log("createdBy is ",createdBy);
+
+
       const response = await fetch(`http://localhost:3001/blogs/${id}`,
       {
           method:"PATCH",

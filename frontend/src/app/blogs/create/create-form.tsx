@@ -32,6 +32,7 @@ export function CreateForm(){
 
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">Create Blog</h5>
             
+            
             <div>
                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog title</label>
                 <input 

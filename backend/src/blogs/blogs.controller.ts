@@ -42,6 +42,7 @@ export class BlogsController {
   update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
     if (!id)
           throw new Error(`update error: id is empty.`);
+
       try {
         return this.blogsService.update(+id, updateBlogDto);
       

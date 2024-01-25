@@ -2,7 +2,7 @@
 
 import { useFormState } from "react-dom";
 import { useFormStatus } from "react-dom";
-import { createBlog } from "../actions";
+import { EditBlog, createBlog } from "../actions";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
@@ -17,9 +17,11 @@ function SubmitButton()
 
     return(
         <button type="submit" 
-        className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                aria-disabled={pending}
+
         >
-            Edit Blog
+            Edit Blog 
         </button>
     )
 }
@@ -40,19 +42,19 @@ type blogs = {
 
 export function EditPage(blogs : BlogItem){
 
-    const [state, formAction] = useFormState(createBlog, initialState);
-    const params = useParams<{ tag: string; item: string }>();
-    const [perblog,setPerBlog] : any = useState() 
+    const [state, formAction] = useFormState(EditBlog, initialState);
 
+    const params = useParams<{ tag: string; item: string }>();
+    
+    const [perblog,setPerBlog] : any = useState() 
 
     useEffect(() => {
 
         const {id} : any = params;
-        
+
         const getBlogById =  blogs.blogs
                                    .filter(b => b.id == id)
-        
-        console.log(getBlogById[0]);
+
         setPerBlog(getBlogById[0])
 
     },[])
@@ -62,12 +64,10 @@ export function EditPage(blogs : BlogItem){
     
         <form className="space-y-6" action={formAction}>
 
-            <h5 className="text-xl font-medium text-gray-900 dark:text-white">Create Blog</h5>
+            <h5 className="text-xl font-medium text-gray-900 dark:text-white">Edit Blog</h5>
 
-            
+            <input type="hidden" name="id" value={perblog && perblog.id}/>
 
-
-            
             <div>
                 <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Blog title</label>
                 <input 
